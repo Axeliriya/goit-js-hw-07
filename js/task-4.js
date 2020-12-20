@@ -16,10 +16,11 @@
 </div>
 */
 
-let counterValue = 0;
+
 const countRef = document.querySelector('#value');
 const decrementRef = document.querySelector('[data-action="decrement"]');
 const incrementRef = document.querySelector('[data-action="increment"]');
+let counterValue = +countRef.textContent;
 
 decrementRef.addEventListener('click', () => {
     counterValue -= 1;
