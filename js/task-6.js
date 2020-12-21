@@ -31,24 +31,24 @@ data-length.
 const inputRef = document.querySelector('#validation-input');
 const lengthRef = inputRef.dataset.length;
 
-// inputRef.addEventListener('blur', event => {
-//   if (
-//     event.target.value.length === +lengthRef
-//   ) {
-//     inputRef.classList.add('valid');
-//     if (inputRef.classList.contains('invalid')) {
-//         inputRef.classList.remove('invalid');
-//     }
-//   } else {
-//     inputRef.classList.add('invalid');
-//     if (inputRef.classList.contains('valid')) {
-//         inputRef.classList.remove('valid');
-//     }
-//   }
-// });
-
 inputRef.addEventListener('blur', event => {
-    event.target.value.length === +lengthRef ?
-    inputRef.classList.add('valid') :
+  if (
+    event.target.value.length === +lengthRef
+  ) {
+    inputRef.classList.add('valid');
+    if (inputRef.classList.contains('invalid')) {
+        inputRef.classList.remove('invalid');
+    }
+  } else {
     inputRef.classList.add('invalid');
+    if (inputRef.classList.contains('valid')) {
+        inputRef.classList.remove('valid');
+    }
+  }
 });
+
+// inputRef.addEventListener('blur', event => {
+//     event.target.value.length === +lengthRef ?
+//     inputRef.classList.add('valid') :
+//     inputRef.classList.add('invalid');
+// });
