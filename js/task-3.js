@@ -29,16 +29,14 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+const listGaleryRef = document.querySelector('#gallery');
+let stringForAdj = '';
 
-const createGalery = ([...array]) => {
-  array.map(image => {
-    const listGaleryRef = document.querySelector('#gallery');
-    listGaleryRef.classList.add('js-flexbox');
-    listGaleryRef.insertAdjacentHTML(
-      'beforeend',
-      `<li class='item'><img src='${image.url}' alt='${image.alt}'></img></li>`,
-    );
-  });
+const createGalery = array => {
+  array.map(image => stringForAdj += `<li class='item'><img src='${image.url}' alt='${image.alt}'></img></li>`);
 };
 
 createGalery(images);
+
+listGaleryRef.classList.add('js-flexbox');
+listGaleryRef.insertAdjacentHTML('beforeend', stringForAdj);

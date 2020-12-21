@@ -28,14 +28,15 @@ const ingredients = [
   'Приправы',
 ];
 
+const ingredientsRef = document.querySelector('#ingredients');
+const liList = [];
+
 const createList = array => {
   array.map(ingredient => {
-  const ingredientsRef = document.querySelector('#ingredients');
   const liRef = document.createElement('li');
   liRef.textContent = ingredient;
-  ingredientsRef.appendChild(liRef);
-
-  return ingredientsRef;
+  liList.push(liRef);
 });
-}
+};
 createList(ingredients);
+ingredientsRef.append(...liList);
